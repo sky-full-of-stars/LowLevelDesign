@@ -4,7 +4,7 @@ import model.Dice;
 
 import java.util.Random;
 
-public class RandomDiceRollService implements DiceRollable{
+public class RandomDiceRollService implements DiceRollable {
 
     @Override
     public Dice rollDice() {

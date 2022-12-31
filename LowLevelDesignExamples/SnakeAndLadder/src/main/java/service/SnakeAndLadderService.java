@@ -16,6 +16,7 @@ public class SnakeAndLadderService {
         this.board = board;
         this.players = players;
     }
+
     private void updateInteruption(Player player) {
         updateIfSnakeInterferenceForPlayersMove(player);
         updateIfLadderInterferenceForPlayerMove(player);
@@ -41,26 +42,26 @@ public class SnakeAndLadderService {
         return diceRollService.rollDice();
     }
 
-    public void startGame(){
+    public void startGame() {
         System.out.println("Starting the game");
 
-        while(true) {
-            if(null == players.peek()) {
+        while (true) {
+            if (null == players.peek()) {
                 System.out.println("Game over");
                 break;
             }
 
             Player currentPlayer = players.poll();
-            System.out.println("Current player is "+ currentPlayer.getName());
+            System.out.println("Current player is " + currentPlayer.getName());
 
             Dice currentDice = getDiceRoll();
-            System.out.println("Current dice roll number is "+ currentDice.getNumber());
+            System.out.println("Current dice roll number is " + currentDice.getNumber());
             currentPlayer.move(currentDice.getNumber());
 
             updateInteruption(currentPlayer);
-            System.out.println("Updated" +currentPlayer.getName() + "position is " + currentPlayer.getLocation());
+            System.out.println("Updated" + currentPlayer.getName() + "position is " + currentPlayer.getLocation());
 
-            if( isPlayerWinner(currentPlayer)) {
+            if (isPlayerWinner(currentPlayer)) {
                 System.out.println(currentPlayer + "won the game");
             }
             else {

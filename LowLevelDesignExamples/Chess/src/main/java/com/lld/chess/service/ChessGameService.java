@@ -29,9 +29,9 @@ public class ChessGameService {
         List<Piece> piecesList = getPiecesBasedOnBoardType(BoardType.STANDARD);
 
         Map<Position, Piece> positionPieceMap = new HashMap<>();
-        piecesList.forEach(v -> positionPieceMap.putIfAbsent(v.getPosition(),v));
+        piecesList.forEach(v -> positionPieceMap.putIfAbsent(v.getPosition(), v));
 
-        this.chessBoard = new ChessBoard(piecesList,positionPieceMap);
+        this.chessBoard = new ChessBoard(piecesList, positionPieceMap);
         this.player1 = player1;
         this.player2 = player2;
     }
@@ -45,7 +45,7 @@ public class ChessGameService {
     }
 
     private boolean isValidMove(Player currentPlayer, Position src, Position destination) {
-        if(!isPieceInSrcBelongsToCurrentPlayer(currentPlayer, src)) {
+        if (!isPieceInSrcBelongsToCurrentPlayer(currentPlayer, src)) {
             return false;
         }
         Piece currentPiece = chessBoard.getPositionPieceMap().get(src);
@@ -68,10 +68,10 @@ public class ChessGameService {
         playerQueue.offer(player2);
         Scanner scanner = new Scanner(System.in);
 
-        while(true) {
+        while (true) {
             Player currentPlayer = playerQueue.poll();
 
-            while(true) {
+            while (true) {
                 System.out.println("Enter source and destination of piece to move");
                 int srcXCoordinate = scanner.nextInt();
                 int srcYCoordinate = scanner.nextInt();
@@ -79,7 +79,7 @@ public class ChessGameService {
                 int destYCoordinate = scanner.nextInt();
                 Position src = new Position(srcXCoordinate, srcYCoordinate);
                 Position destination = new Position(destXCoordinate, destYCoordinate);
-                if(isValidMove(currentPlayer, src, destination)) {
+                if (isValidMove(currentPlayer, src, destination)) {
                     makeMove(currentPlayer, src, destination);
                     updatePosition(currentPlayer, src, destination);
                     break;
@@ -90,12 +90,12 @@ public class ChessGameService {
             }
 
             playerQueue.offer(currentPlayer);
-            if(isCurrentPlayerWin(currentPlayer)) {
+            if (isCurrentPlayerWin(currentPlayer)) {
                 this.winner = currentPlayer;
-                System.out.println("Winner of the game is "+ winner);
+                System.out.println("Winner of the game is " + winner);
                 break;
             }
-            if(isDrawBoard()) {
+            if (isDrawBoard()) {
                 System.out.println("Game draw!");
                 break;
             }

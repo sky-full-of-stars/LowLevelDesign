@@ -6,6 +6,7 @@ import lombok.Data;
 public abstract class Piece {
     Position position;
     String name;
+
     //checks if a move from position x to y is valid for a piece or not.
     public abstract boolean isValidMove(Position x, Position y);
 

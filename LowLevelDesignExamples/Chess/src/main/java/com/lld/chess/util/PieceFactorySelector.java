@@ -6,7 +6,7 @@ public class PieceFactorySelector {
     StandardPiecesFactory standardPiecesFactory;
 
     public AbstractPieceFactory getPieceFactory(BoardType type) {
-        if(BoardType.STANDARD.equals(type)) {
+        if (BoardType.STANDARD.equals(type)) {
             return standardPiecesFactory;
         }
         return standardPiecesFactory;

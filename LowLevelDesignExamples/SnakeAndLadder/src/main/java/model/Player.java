@@ -14,7 +14,7 @@ public class Player {
     private int location;
 
     public void move(int steps) {
-        if(this.location + steps < BOARD_SIZE)
+        if (this.location + steps < BOARD_SIZE)
             this.location = (this.location + steps);
         else
             this.location = BOARD_SIZE;

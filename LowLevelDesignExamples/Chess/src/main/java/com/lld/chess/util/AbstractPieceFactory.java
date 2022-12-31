@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface AbstractPieceFactory {
     List<Piece> getWhitePieces();
+
     List<Piece> getBlackPieces();
 }

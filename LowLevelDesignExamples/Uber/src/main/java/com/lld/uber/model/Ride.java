@@ -12,11 +12,11 @@ import java.util.List;
 public class Ride {
     private String id;
     private RideType rideType;
-    private int fare;
+    private double fare;
     private Driver driver;
     private List<Rider> riderList;
     private Location source;
     private Location destination;
-    private Date dateTime;
+    private Date dateTime; //when ride was confirmed
     private RideStatus rideStatus;
 }

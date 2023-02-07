@@ -18,10 +18,11 @@ public class ProximityService {
 
     public List<Driver> getDriversInRadiusOfLocation(Location center, int radius) {
         final List<Driver> driverList = driverService.getDriverList();
-        DistanceFactory distanceFactory = new DistanceFactory();
+        //DistanceFactory distanceFactory = new DistanceFactory();
         return driverList.stream().filter(x -> x.getStatus().equals(DriverStatus.ACTIVELY_LOOKING)).filter(driver -> {
-            double distanceOfDriver = distanceFactory.getDistanceService(DistanceCalculateMethod.EUCLIDEAN).getDistanceBetweenPoints(driver.getVehicle().getLocation(), center);
-            return distanceOfDriver<=radius; }
+                    double distanceOfDriver = DistanceFactory.getDistanceService(DistanceCalculateMethod.EUCLIDEAN).getDistanceBetweenPoints(driver.getVehicle().getLocation(), center);
+                    return distanceOfDriver <= radius;
+                }
         ).collect(Collectors.toList());
     }
 

@@ -5,7 +5,7 @@ import com.example.librarymanagementsystem.model.BookCopy;
 import java.util.List;
 
 public class BorrowService {
-    
+
     public void borrowBook(String s, String s1, String s2) {
     }
 

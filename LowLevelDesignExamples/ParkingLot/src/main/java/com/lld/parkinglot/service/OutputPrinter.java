@@ -1,2 +1,5 @@
-package com.lld.parkinglot.service;public class OutputPrinter {
+package com.lld.parkinglot.service;
+
+public class OutputPrinter {
+
 }

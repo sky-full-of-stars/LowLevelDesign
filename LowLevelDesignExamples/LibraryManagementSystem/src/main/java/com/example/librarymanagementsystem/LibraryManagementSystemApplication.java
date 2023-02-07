@@ -21,7 +21,7 @@ public class LibraryManagementSystemApplication {
         String command = scanner.next();
         List<String> params = Arrays.stream(command.split(",")).toList();
 
-        if(EXIT.equals(params.get(0))) {
+        if (EXIT.equals(params.get(0))) {
             System.out.println("Exiting from library management application");
             System.exit(1);
         }

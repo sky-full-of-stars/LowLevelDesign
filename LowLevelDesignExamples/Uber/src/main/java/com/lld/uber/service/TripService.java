@@ -21,6 +21,7 @@ import java.util.List;
 public class TripService {
 
     private List<Ride> rideList = new ArrayList<>();
+
     void registerRide(Ride ride) {
         rideList.add(ride);
     }
@@ -33,7 +34,7 @@ public class TripService {
         ride.setDateTime(Date.from(Instant.now()));
         Driver driver = nearByDrivers.get(0);
         ride.setDriver(driver);
-        double distance = new DistanceFactory().getDistanceService(DistanceCalculateMethod.EUCLIDEAN).getDistanceBetweenPoints(source, destination);
+        double distance = DistanceFactory.getDistanceService(DistanceCalculateMethod.EUCLIDEAN).getDistanceBetweenPoints(source, destination);
         ride.setFare(FareService.calculateFare(driver.getVehicle(), distance));
         ride.setSource(source);
         ride.setDestination(destination);

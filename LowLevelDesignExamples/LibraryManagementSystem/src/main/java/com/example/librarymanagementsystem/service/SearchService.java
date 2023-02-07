@@ -16,10 +16,10 @@ public class SearchService {
     public List<Integer> findRackForBook(Library library, List<BookCopy> bookCopyList) {
         final HashMap<Integer, Set<BookCopy>> rackBookMap = library.getRackBookMap();
         List<Integer> availableRacks = new ArrayList<>();
-        bookCopyList.forEach(bookCopy ->  {
-            for(int rack: rackBookMap.keySet()){
+        bookCopyList.forEach(bookCopy -> {
+            for (int rack : rackBookMap.keySet()) {
                 Set<BookCopy> bookCopies = rackBookMap.get(rack);
-                if(bookCopies.stream().map(BookCopy::getBook).noneMatch(v -> v.equals(bookCopy))) {
+                if (bookCopies.stream().map(BookCopy::getBook).noneMatch(v -> v.equals(bookCopy))) {
                     availableRacks.add(rack);
                 }
             }

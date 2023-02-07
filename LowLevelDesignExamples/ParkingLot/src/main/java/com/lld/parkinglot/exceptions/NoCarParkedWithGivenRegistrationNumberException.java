@@ -1,2 +1,4 @@
-package com.lld.parkinglot.exceptions;public class NoCarParkedWithGivenRegistrationNumberException {
+package com.lld.parkinglot.exceptions;
+
+public class NoCarParkedWithGivenRegistrationNumberException extends RuntimeException{
 }

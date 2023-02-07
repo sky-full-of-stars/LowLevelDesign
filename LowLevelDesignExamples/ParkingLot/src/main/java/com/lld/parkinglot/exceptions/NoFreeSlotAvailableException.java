@@ -1,2 +1,4 @@
-package com.lld.parkinglot.exceptions;public class NoFreeSlotAvailableException {
+package com.lld.parkinglot.exceptions;
+
+public class NoFreeSlotAvailableException extends RuntimeException{
 }

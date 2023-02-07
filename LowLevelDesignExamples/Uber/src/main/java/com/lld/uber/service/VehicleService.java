@@ -7,6 +7,7 @@ import java.util.List;
 
 public class VehicleService {
     private List<Vehicle> vehicleList = new ArrayList<>();
+
     public void registerVehicle(Vehicle vehicle) {
         vehicleList.add(vehicle);
     }

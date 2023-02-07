@@ -1,2 +1,6 @@
-package com.lld.parkinglot.exceptions;public class ParkingLotAlreadyExists {
+package com.lld.parkinglot.exceptions;
+
+public class ParkingLotAlreadyExists extends RuntimeException {
+    public ParkingLotAlreadyExists(String s) {
+    }
 }

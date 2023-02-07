@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 public class DriverService {
     private List<Driver> driverList = new ArrayList<>();
+
     public void registerDriver(Driver driver) {
         driverList.add(driver);
     }

@@ -3,6 +3,7 @@ package com.example.librarymanagementsystem.model;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+
 @AllArgsConstructor
 public class Book {
     private String bookId;

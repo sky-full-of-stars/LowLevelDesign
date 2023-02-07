@@ -6,8 +6,8 @@ public class DistanceFactory {
 
     private static EucledianDistanceService eucledianDistanceService = new EucledianDistanceService();
 
-    public DistanceService getDistanceService(DistanceCalculateMethod type) {
-        if(DistanceCalculateMethod.EUCLIDEAN.equals(type)){
+    public static DistanceService getDistanceService(DistanceCalculateMethod type) {
+        if (DistanceCalculateMethod.EUCLIDEAN.equals(type)) {
             return eucledianDistanceService;
         }
         return null;

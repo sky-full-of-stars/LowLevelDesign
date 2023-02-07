@@ -25,12 +25,13 @@ public class LibraryService {
         bookCopyIds.forEach(v -> bookCopyList.add(new BookCopy(v, book)));
 
         List<Integer> racksForTheBookCopies = searchService.findRackForBook(library, bookCopyList);
-        if(CollectionUtils.isEmpty(racksForTheBookCopies) || bookCopyList.size() != racksForTheBookCopies.size()){
+        if (CollectionUtils.isEmpty(racksForTheBookCopies) || bookCopyList.size() != racksForTheBookCopies.size()) {
             System.out.println("Rack not available");
-        }else {
+        }
+        else {
             HashMap<Integer, Set<BookCopy>> rackBookMap = library.getRackBookMap();
             int availableRacks = racksForTheBookCopies.size();
-            for(int rackIdx = 0; rackIdx< availableRacks; rackIdx++){
+            for (int rackIdx = 0; rackIdx < availableRacks; rackIdx++) {
                 int currentRack = racksForTheBookCopies.get(rackIdx);
                 BookCopy currentBookCopy = bookCopyList.get(rackIdx);
                 rackBookMap.get(currentRack).add(currentBookCopy);
@@ -46,7 +47,7 @@ public class LibraryService {
         List<Publisher> publisherList = new ArrayList<>();
         publishersList.stream().forEach(v -> publisherList.add(new Publisher(v)));
 
-        Book book = new Book(bookId, title,publisherList, authorList);
+        Book book = new Book(bookId, title, publisherList, authorList);
         return book;
     }
 

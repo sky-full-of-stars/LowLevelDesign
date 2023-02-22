@@ -31,7 +31,7 @@ public class AddExpenseService extends ExecuteCommandService {
                 stream().map(Double::parseDouble).collect(Collectors.toList());
 
         ExpenseSharable expenseService = expenseTypeFactory.getExpenseServiceByType(shareType);
-        List<SimplifiedBalance> balances = expenseService.calculateShare(moneySpent,users,shares);
+        List<SimplifiedBalance> balances = expenseService.calculateShare(moneySpent,splitwiseInventory.getUsersForUsernames(users), splitwiseInventory.getUserByName(payee), shares);
         balances.forEach(v -> v.setOwedTo(this.splitwiseInventory.getUserByName(payee)));
 
         this.splitwiseInventory.getGroups().stream().

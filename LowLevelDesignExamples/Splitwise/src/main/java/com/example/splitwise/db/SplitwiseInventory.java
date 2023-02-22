@@ -7,7 +7,9 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -30,9 +32,13 @@ public class SplitwiseInventory {
             return userByName.get(name);
         }
         else{
-            User user = new User(name,null, new ArrayList<>());
+            User user = new User(name,null, new HashSet<>());
             addUser(user);
             return getUserByName(name);
         }
+    }
+
+    public List<User> getUsersForUsernames(List<String> userNames){
+        return userNames.stream().map(this::getUserByName).collect(Collectors.toList());
     }
 }

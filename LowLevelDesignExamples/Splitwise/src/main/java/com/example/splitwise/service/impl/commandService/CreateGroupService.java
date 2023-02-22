@@ -20,7 +20,7 @@ public class CreateGroupService extends ExecuteCommandService {
         String groupName = params.get(0);
         List<String> userNames = params.subList(1, params.size());
 
-        List<User> users = getUsersForUsernames(userNames);
+        List<User> users = this.splitwiseInventory.getUsersForUsernames(userNames);
         Group group = new Group(groupName, null, false, users, new ArrayList<>(), new ArrayList<>());
         this.splitwiseInventory.getGroups().add(group);
 
@@ -31,8 +31,6 @@ public class CreateGroupService extends ExecuteCommandService {
         users.forEach(v -> v.addGroups(group));
     }
 
-    private List<User> getUsersForUsernames(List<String> userNames){
-        return userNames.stream().map(name -> this.splitwiseInventory.getUserByName(name)).collect(Collectors.toList());
-    }
+
 
 }

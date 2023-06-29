@@ -1,12 +1,10 @@
-#Rate Limiter
+# Rate Limiter
 
-###A rate limiter is used to restrict the rate at which a resource is accessed.
+### A rate limiter is used to restrict the rate at which a resource is accessed.
 
+### The requirement is to implement a Rate Limiter that can wrap any function call and prevent calls in excess of the specified limit.
 
-###The requirement is to implement a Rate Limiter that can wrap any function call and prevent calls in excess of the specified limit.
-
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------
 First a rate limiter is configured with the allowed rate limit as shown:
 RateLimiter limiter = new RateLimiter(allowedRate, window)
 For example:
@@ -30,3 +28,5 @@ When this wrapped function receives more calls than allowed it should fail the e
 
 
 After implementing the function write test cases to verify the functionality of RateLimiter.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------

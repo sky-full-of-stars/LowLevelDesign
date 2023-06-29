@@ -1,7 +1,7 @@
 package com.lld.ratelimiter.exceptions;
 
-public class RateLimiterException extends RuntimeException {
-    public RateLimiterException(String msg) {
+public class RateLimitExceededException extends RuntimeException {
+    public RateLimitExceededException(String msg) {
         super(msg);
     }
 }

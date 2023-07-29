@@ -8,10 +8,10 @@ public class AllotElevatorFactory {
     {
         switch (way)
         {
-            case NEAREST_FIRST :
-                return new NearestElevatorAllocationService();
+            case LEAST_WAIT_TIME_FIRST:
+                return new LeastWaitTimeElevatorAllocationService();
             default:
-                return new NearestElevatorAllocationService();
+                return new LeastWaitTimeElevatorAllocationService();
         }
     }
 }

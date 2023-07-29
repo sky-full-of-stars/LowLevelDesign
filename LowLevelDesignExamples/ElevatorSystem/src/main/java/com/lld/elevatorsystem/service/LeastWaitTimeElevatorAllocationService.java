@@ -8,7 +8,7 @@ import com.lld.elevatorsystem.repository.ElevatorInventory;
 import java.util.Comparator;
 import java.util.List;
 
-public class NearestElevatorAllocationService implements AllotElevatorService{
+public class LeastWaitTimeElevatorAllocationService implements AllotElevatorService{
 
     @Override
     public void allot(List<PersonRequest> people, ElevatorInventory elevatorInventory) {
@@ -19,7 +19,7 @@ public class NearestElevatorAllocationService implements AllotElevatorService{
             OptimalElevator elevator = getOptimalElevator(person, elevatorInventory.getElevatorList());
             Elevator nearestElevator = elevator.getElevator();
 
-            nearestElevator.setStartTime(person.getArrivingTime());
+            nearestElevator.setStartTime(person.getArrivingTime()+ elevator.getWaitingTime());
             nearestElevator.setToFloor(person.getToFloor());
             nearestElevator.setFromFloor(person.getFromFloor());
             nearestElevator.blockElevator();
@@ -28,8 +28,7 @@ public class NearestElevatorAllocationService implements AllotElevatorService{
             int totalWaitingDurationForElevator = elevator.getWaitingTime();
             totalTimeToServeAllPeople += totalWaitingDurationForElevator;
 
-
-            nearestElevator.setMovingUp((nearestElevator.getFromFloor() < person.getToFloor()));
+            //nearestElevator.setMovingUp((nearestElevator.getFromFloor() < person.getToFloor()));
 
             //once we decide, we just move elevator
             int timeElevatorSpentServingRequest = Math.abs(nearestElevator.getFromFloor() - person.getToFloor());

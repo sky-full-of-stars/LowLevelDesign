@@ -1,7 +1,6 @@
 package com.lld.elevatorsystem;
 
 import com.lld.elevatorsystem.enums.ElevatorAllocationWays;
-import com.lld.elevatorsystem.model.Elevator;
 import com.lld.elevatorsystem.model.PersonRequest;
 import com.lld.elevatorsystem.repository.ElevatorInventory;
 import com.lld.elevatorsystem.service.AllotElevatorFactory;
@@ -16,7 +15,7 @@ import java.util.Scanner;
 public class ElevatorSystemApplication {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static final ElevatorAllocationWays DEFAULT_ELEVATOR_ALLOCATION_WAY = ElevatorAllocationWays.NEAREST_FIRST;
+    private static final ElevatorAllocationWays DEFAULT_ELEVATOR_ALLOCATION_WAY = ElevatorAllocationWays.LEAST_WAIT_TIME_FIRST;
 
     public static void main(String[] args) {
         //SpringApplication.run(ElevatorSystemApplication.class, args);

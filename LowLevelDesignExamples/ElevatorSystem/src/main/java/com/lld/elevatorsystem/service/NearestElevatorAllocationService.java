@@ -79,6 +79,10 @@ public class NearestElevatorAllocationService implements AllotElevatorService{
 
     //we will pick up the person if he is on right floor at right time
     //ie, we are ignoring the case where in lift going in certain direction can wait for a while for person to arrive
+    //example:
+    //if lift is moving and comes to 2nd floor and time 3 but person x comes to 2nd floor at time 4, lift doesnt wait for x.
+    //justification:
+    //lift can't be aware of future people. lift only knows present tense
     private boolean canPersonBePickedUpOTW(PersonRequest person, Elevator elevator) {
             int pickUpRequestFloor = person.getFromFloor();
             int pickUpRequestTime = person.getArrivingTime();

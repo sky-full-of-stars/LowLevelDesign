@@ -1,14 +1,14 @@
 package com.lld.onlinemarketplace;
 
-import com.lld.onlinemarketplace.model.MarketplaceUser;
-import com.lld.onlinemarketplace.model.Product;
-import com.lld.onlinemarketplace.model.User;
+import com.lld.onlinemarketplace.model.*;
 import com.lld.onlinemarketplace.repo.Marketplace;
 import com.lld.onlinemarketplace.service.AccountService;
 import com.lld.onlinemarketplace.service.ProductService;
 import com.lld.onlinemarketplace.service.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 
 @SpringBootApplication
 public class OnlineMarketplaceApplication {
@@ -37,11 +37,14 @@ public class OnlineMarketplaceApplication {
         accountService.addToCart("1", "p1",2);
         accountService.addToCart("1", "p2",2);
 
-        accountService.getCart("1");
+        List<CartItem> cartItemList = accountService.getCart("1");
+        System.out.println(cartItemList);
 
-        accountService.getOrderHistory("1");
+        List<Order> orders = accountService.getOrderHistory("1");
+        System.out.println(orders);
         accountService.checkout("1");
-        accountService.getOrderHistory("1");
+        orders = accountService.getOrderHistory("1");
+        System.out.println(orders);
 
     }
 

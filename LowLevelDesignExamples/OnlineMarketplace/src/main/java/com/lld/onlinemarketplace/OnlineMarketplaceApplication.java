@@ -2,6 +2,7 @@ package com.lld.onlinemarketplace;
 
 import com.lld.onlinemarketplace.model.MarketplaceUser;
 import com.lld.onlinemarketplace.model.Product;
+import com.lld.onlinemarketplace.model.User;
 import com.lld.onlinemarketplace.repo.Marketplace;
 import com.lld.onlinemarketplace.service.AccountService;
 import com.lld.onlinemarketplace.service.ProductService;
@@ -23,8 +24,9 @@ public class OnlineMarketplaceApplication {
 
         SpringApplication.run(OnlineMarketplaceApplication.class, args);
 
-        MarketplaceUser user = new MarketplaceUser("1","n1", "em1", "pw1");
-        userService.createUser(user);
+        User user = new User("n1","em1", "pw1");
+        MarketplaceUser mpUser = new MarketplaceUser("1",user);
+        userService.createUser(mpUser);
         userService.getUser("1");
 
         Product product1 = new Product("p1", "pname1", 100, 5, "seller1");

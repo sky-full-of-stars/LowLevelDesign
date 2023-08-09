@@ -27,12 +27,12 @@ public class AccountService {
 
     public List<CartItem> getCart(String userId) {
         MarketplaceUserAccount userAccount = getAccountForUserId(userId);
-        return  userAccount.getCart();
+        return  userAccount.getUserCart().getCartItemList();
     }
 
     public List<Order> getOrderHistory(String userId) {
         MarketplaceUserAccount userAccount = getAccountForUserId(userId);
-        return userAccount.getOrderHistory();
+        return userAccount.getOrders();
     }
 
     public void checkout(String userId) {

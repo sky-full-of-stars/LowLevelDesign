@@ -22,8 +22,11 @@ public class Marketplace {
     private Map<String, Product> products = new HashMap<>();
     private Map<String, MarketplaceUserAccount> userAccounts = new HashMap<>();
 
-    public static synchronized Marketplace getInstance(){
-        return Objects.requireNonNullElseGet(instance, Marketplace::new);
+    public static synchronized Marketplace getInstance() {
+
+        if (instance == null)
+            instance = new Marketplace();
+        return instance;
     }
 
 }

@@ -17,4 +17,11 @@ public class MarketplaceUser extends User{
         super.email = email;
         super.password = password;
     }
+
+    public MarketplaceUser(String id, User user){
+        this.id = id;
+        super.name = user.name;
+        super.email = user.email;
+        super.password = user.password;
+    }
 }
